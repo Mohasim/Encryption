@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class CaesarCipher {
+    public static void main(String[] args) {
+        Scanner scMsg= new Scanner(System.in);
+
+        String message = scMsg.nextLine();
+        int key=scMsg.nextInt();
+        String enMessage="";
+
+        for(int i=0; i<message.length();i++){
+            if (message.charAt(i)>=97 && message.charAt(i)<=122){
+                int ascii= message.charAt(i)+key;//Getting current letter and converting charter from string to Asiic integer
+                if (ascii>122){
+                    ascii-=26;//Loop around the english alphabet
+                }
+                enMessage+=Character.toString(ascii);// creating to encryption Message.
+            }
+            else {
+                enMessage+=message.charAt(i);//appending non alphabetic character
+            }
+        }
+
+        System.out.println(enMessage);
+    }
+}
